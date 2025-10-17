@@ -1,6 +1,6 @@
 # OpenAI Wrapper - No Pydantic
 
-A simple Python package for calling OpenAI's API without using Pydantic or the OpenAI SDK. Perfect for environments where Pydantic is blocked or unavailable.
+A simple Python package for calling OpenAI's API without using Pydantic or the OpenAI SDK. Perfect for environments where Pydantic is unavailable.
 
 ## Features
 
@@ -108,9 +108,9 @@ except Exception as e:
 
 ## Why No Pydantic?
 
-This package is specifically designed for environments where Pydantic is not available or is blocked by company policy. 
+This package is specifically designed for environments where Pydantic is not available. 
 
-**The Problem:** The official OpenAI Python SDK (`openai` package) has a hard dependency on `pydantic` and `pydantic-core`, which may be blocked in some corporate environments.
+**The Problem:** The official OpenAI Python SDK (`openai` package) has a hard dependency on `pydantic` and `pydantic-core`, which may be unavailable in some environments.
 
 **Our Solution:** We bypass the OpenAI SDK entirely and call the OpenAI API directly using HTTP requests via the `requests` library. This eliminates all Pydantic dependencies while maintaining full functionality.
 
