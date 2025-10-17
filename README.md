@@ -1,13 +1,17 @@
-# OpenAI Wrapper - No Pydantic
+# OpenAI Without Pydantic
 
-A simple Python package for calling OpenAI's API without using Pydantic or the OpenAI SDK. Perfect for environments where Pydantic is unavailable.
+[![PyPI version](https://badge.fury.io/py/openai-without-pydantic.svg)](https://badge.fury.io/py/openai-without-pydantic)
+[![Python Support](https://img.shields.io/pypi/pyversions/openai-without-pydantic.svg)](https://pypi.org/project/openai-without-pydantic/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+A simple Python package for calling OpenAI's API without using Pydantic or the OpenAI SDK. Perfect for environments where Pydantic is unavailable or you want minimal dependencies.
 
 ## Features
 
 - ✅ Simple, single-function API: `ask_ai_question(input_text, question_asked)`
 - ✅ **Zero Pydantic dependency** - uses direct HTTP requests
 - ✅ **No OpenAI SDK required** - bypasses all SDK dependencies
-- ✅ Support for all OpenAI chat models
+- ✅ Support for all OpenAI chat models (GPT-4, GPT-4o, GPT-3.5, etc.)
 - ✅ Customizable parameters (temperature, max_tokens, model)
 - ✅ Type hints for better IDE support
 - ✅ Comprehensive error handling
@@ -15,17 +19,48 @@ A simple Python package for calling OpenAI's API without using Pydantic or the O
 
 ## Installation
 
-1. Install the dependencies:
+Install from PyPI:
+
 ```bash
-pip install -r requirements.txt
+pip install openai-without-pydantic
 ```
 
-This only installs `requests` - no Pydantic, no OpenAI SDK!
+That's it! Only `requests` is installed - no Pydantic, no OpenAI SDK!
 
-2. Set your OpenAI API key:
+## Quick Start
+
+### Setting Your OpenAI API Key
+
+The package needs your OpenAI API key to make requests. Set it as an environment variable:
+
+**Linux/macOS (bash/zsh):**
 ```bash
 export OPENAI_API_KEY='your-api-key-here'
 ```
+
+**Windows (Command Prompt):**
+```cmd
+set OPENAI_API_KEY=your-api-key-here
+```
+
+**Windows (PowerShell):**
+```powershell
+$env:OPENAI_API_KEY='your-api-key-here'
+```
+
+**Or use a `.env` file (recommended for development):**
+```bash
+# Create a .env file in your project directory
+OPENAI_API_KEY=your-api-key-here
+```
+
+Then load it in your Python code:
+```python
+from dotenv import load_dotenv
+load_dotenv()  # This loads the .env file
+```
+
+> **Note:** Install `python-dotenv` for `.env` file support: `pip install python-dotenv`
 
 ## Usage
 
@@ -76,21 +111,64 @@ response = ask_ai_question(
 
 ## Running the Examples
 
-Run the included example file:
+Check out the `examples/` directory for various usage examples:
+
 ```bash
-python main.py
+# Basic usage
+python examples/basic_usage.py
+
+# Advanced features
+python examples/advanced_usage.py
+
+# Batch processing
+python examples/batch_processing.py
 ```
+
+**Or use the convenience scripts (automatically activates virtual environment):**
+
+```bash
+./run_examples.sh    # Interactive menu
+./run_basic.sh       # Run basic example
+./run_advanced.sh    # Run advanced example
+./run_batch.sh       # Run batch example
+```
+
+See [examples/README.md](examples/README.md) for detailed information about each example, or [SCRIPTS.md](SCRIPTS.md) for more about the convenience scripts.
 
 ## Project Structure
 
 ```
 .
-├── openai_wrapper/
-│   ├── __init__.py       # Package initialization
-│   └── client.py         # Main implementation
-├── main.py               # Usage examples
-├── requirements.txt      # Dependencies
-└── README.md            # This file
+├── openai_wrapper/          # Main package
+│   ├── __init__.py          # Package initialization
+│   ├── client.py            # Core implementation
+│   └── py.typed             # Type hint marker
+├── examples/                # Usage examples
+│   ├── basic_usage.py       # Simple examples
+│   ├── advanced_usage.py    # Advanced features
+│   ├── batch_processing.py  # Batch operations
+│   └── README.md            # Examples documentation
+├── tests/                   # Unit tests
+│   ├── __init__.py
+│   └── test_client.py       # Test suite
+├── .github/workflows/       # CI/CD pipelines
+│   ├── test.yml             # Automated testing
+│   └── publish.yml          # PyPI publishing
+├── run_examples.sh          # Interactive example runner
+├── run_basic.sh             # Quick run basic example
+├── run_advanced.sh          # Quick run advanced example
+├── run_batch.sh             # Quick run batch example
+├── run_tests.sh             # Quick run tests
+├── CHANGELOG.md             # Version history
+├── CONTRIBUTING.md          # Contribution guidelines
+├── SECURITY.md              # Security policy
+├── PUBLISHING.md            # Publishing guide
+├── SCRIPTS.md               # Convenience scripts docs
+├── LICENSE                  # MIT License
+├── README.md                # This file
+├── pyproject.toml           # Modern Python packaging
+├── setup.py                 # Package setup
+└── requirements.txt         # Dependencies
 ```
 
 ## Error Handling
@@ -119,6 +197,49 @@ This package is specifically designed for environments where Pydantic is not ava
 - `requests>=2.25.0` - For making HTTP requests to OpenAI API
 - **That's it!** No Pydantic, no OpenAI SDK, no hidden dependencies.
 
+## Testing
+
+Run the test suite:
+```bash
+pytest tests/ -v
+```
+
+With coverage:
+```bash
+pytest tests/ --cov=openai_wrapper --cov-report=term-missing
+```
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for development setup.
+
+## Contributing
+
+Contributions are welcome! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for:
+- Development setup
+- Coding standards
+- How to submit pull requests
+- Running tests
+
+## Security
+
+For security concerns, please see [SECURITY.md](SECURITY.md) for:
+- Reporting vulnerabilities
+- Security best practices
+- API key safety guidelines
+
+## Publishing
+
+To publish this package to PyPI, see [PUBLISHING.md](PUBLISHING.md) for step-by-step instructions.
+
+## Changelog
+
+See [CHANGELOG.md](CHANGELOG.md) for version history and release notes.
+
 ## License
 
-MIT
+MIT License - see [LICENSE](LICENSE) for details.
+
+## Links
+
+- **PyPI**: https://pypi.org/project/developeralex-openai-without-pydantic/
+- **GitHub**: https://github.com/DeveloperAlex/pypi_OpenAI_Without_Pydantic
+- **Issues**: https://github.com/DeveloperAlex/pypi_OpenAI_Without_Pydantic/issues
