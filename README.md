@@ -1,8 +1,9 @@
 # OpenAI Without Pydantic
 
-[![PyPI version](https://badge.fury.io/py/openai-without-pydantic.svg)](https://badge.fury.io/py/openai-without-pydantic)
-[![Python Support](https://img.shields.io/pypi/pyversions/openai-without-pydantic.svg)](https://pypi.org/project/openai-without-pydantic/)
+[![PyPI version](https://badge.fury.io/py/developeralex-openai-without-pydantic.svg)](https://badge.fury.io/py/developeralex-openai-without-pydantic)
+[![Python Support](https://img.shields.io/badge/python-3.10%2B-blue)](https://pypi.org/project/developeralex-openai-without-pydantic/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
 A simple Python package for calling OpenAI's API without using Pydantic or the OpenAI SDK. Perfect for environments where Pydantic is unavailable or you want minimal dependencies.
 
@@ -230,6 +231,10 @@ For security concerns, please see [SECURITY.md](SECURITY.md) for:
 
 To publish this package to PyPI, see [PUBLISHING.md](PUBLISHING.md) for step-by-step instructions.
 
+## FAQ
+
+Got questions? Check out the [FAQ.md](FAQ.md) for answers to common questions!
+
 ## Changelog
 
 See [CHANGELOG.md](CHANGELOG.md) for version history and release notes.
@@ -238,8 +243,14 @@ See [CHANGELOG.md](CHANGELOG.md) for version history and release notes.
 
 MIT License - see [LICENSE](LICENSE) for details.
 
+## Code of Conduct
+
+This project follows a Code of Conduct to ensure a welcoming environment. See [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md).
+
 ## Links
 
 - **PyPI**: https://pypi.org/project/developeralex-openai-without-pydantic/
 - **GitHub**: https://github.com/DeveloperAlex/pypi_OpenAI_Without_Pydantic
 - **Issues**: https://github.com/DeveloperAlex/pypi_OpenAI_Without_Pydantic/issues
+- **Quick Start**: [QUICKSTART.md](QUICKSTART.md)
+- **FAQ**: [FAQ.md](FAQ.md)
